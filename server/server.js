@@ -25,6 +25,7 @@ async function main() {
         res.json(products);
     });
 
+    // Add product with duplicate id check
     app.post('/products', async (req, res) => {
         const product = req.body;
         const exists = await collection.findOne({ id: product.id });
@@ -34,12 +35,14 @@ async function main() {
         res.json(result);
     });
 
+    // Delete and Update product 
     app.delete('/products/:id', async (req, res) => {
         const id = req.params.id;
         const result = await collection.deleteOne({ _id: new ObjectId(id) });
         res.json(result);
     });
 
+    // Update product
     app.put('/products/:id', async (req, res) => {
         const id = req.params.id;
         const updatedProduct = req.body;
