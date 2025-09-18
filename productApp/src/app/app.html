@@ -1,0 +1,14 @@
+<!-- src/app/app.component.html -->
+<nav class="navbar">
+  <h1>Product Management</h1>
+  <div class="nav-links">
+    <a routerLink="/products" routerLinkActive="active">Products</a>
+    <a routerLink="/add-product" routerLinkActive="active">Add Product</a>
+  </div>
+</nav>
+
+<main class="content">
+  <!-- Angular will render the active component here -->
+  <router-outlet></router-outlet>
+</main>
+
